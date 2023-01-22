@@ -39,28 +39,111 @@ IVehicle).
 
 fun main(args: Array<String>) {
 
-    println("1. Машина")
-    val transportCar_Movement:Movement = car()
+    val transportCar_Movement:Movement = all_movement()
+
     val transportCar_Rubber:Rubber = car()
     val transportCar_Asphalt:Asphalt = car()
     val transportCar_Relief:Relief = car()
     val transportCar_Season:Season = car()
     val transportCar_Driving:Driving = car()
 
-    print("Выберете колёса: ")
-    val wheels = readln()!!.toString()
+    val array = arrayListOf(transportCar_Rubber, transportCar_Asphalt, transportCar_Relief, transportCar_Season, transportCar_Driving)
+
+    println("1. Машина")
 
     println(transportCar_Movement.start_of_movement)
 
-    print("Вы выбрали колёса: ")
-    if (wheels == "Летние") {
-        println(transportCar_Rubber.driving_Rubber_summer)
-    } else if (wheels == "Зимние") {
-        println(transportCar_Rubber.driving_Rubber_winter)
-    } else {
-        println(transportCar_Rubber.driving_Rubber_allSeason)
-    }
+    for (i in array) {
+        println("Выберете колёса: ")
+        println("1. Летние")
+        println("2. Зимние")
+        println("3. Всесезонные")
+        print("Ваш выбор: ")
+        val wheels = readln()!!.toString()
 
+        print("Вы выбрали колёса: ")
+        if (wheels == "Летние") {
+            println(transportCar_Rubber.driving_Rubber_summer)
+        } else if (wheels == "Зимние") {
+            println(transportCar_Rubber.driving_Rubber_winter)
+        } else if (wheels == "Всесезонные") {
+            println(transportCar_Rubber.driving_Rubber_allSeason)
+        } else {println("Вы выбрали непонятные колёса!!!")}
+
+        println("Выберете асфальт: ")
+        println("1. Отличный")
+        println("2. Хороший")
+        println("3. Плохой")
+        print("Ваш выбор: ")
+        val road = readln()!!.toString()
+
+        print("Вы выбрали асфальт: ")
+        if (road == "Отличный") {
+            println(transportCar_Asphalt.excellent_asphalt)
+        } else if (wheels == "Хороший") {
+            println(transportCar_Asphalt.good_asphalt)
+        } else if (wheels == "Плохой") {
+            println(transportCar_Asphalt.bad_asphalt)
+        } else {println("Вы выбрали непонятный асфальт!!!")}
+
+        println("Выберете рельеф: ")
+        println("1. Горизонтальный")
+        println("2. Наклонный")
+        println("3. Выпклый")
+        print("Ваш выбор: ")
+        val relief = readln()!!.toString()
+
+        print("Вы выбрали рельеф: ")
+        if (relief == "Горизонтальный") {
+            println(transportCar_Relief.horizontal_relief)
+        } else if (relief == "Наклонный") {
+            println(transportCar_Relief.inclined_relief)
+        } else if (relief == "Выпклый") {
+            println(transportCar_Relief.convex_relief)
+        } else {println("Вы выбрали непонятный рельеф!!!")}
+
+        println("Выберете сезон: ")
+        println("1. Зимний")
+        println("2. Весенний")
+        println("3. Летний")
+        println("4. Осенний")
+        print("Ваш выбор: ")
+        val season = readln()!!.toString()
+
+        print("Вы выбрали сезон: ")
+        if (season == "Зимний") {
+            println(transportCar_Season.winter_season)
+        } else if (season== "Весенний") {
+            println(transportCar_Season.spring_season)
+        } else if (season == "Летний") {
+            println(transportCar_Season.summer_season)
+        }
+        else if (season == "Осенний") {
+            println(transportCar_Season.autumn_season)
+        } else {println("Вы выбрали не верный сезон года!!!")}
+
+        println("Выберете манеру вождения: ")
+        println("1. Северная")
+        println("2. Нормальная")
+        println("3. Столичная")
+        println("4. Южная")
+        print("Ваш выбор: ")
+        val driving = readln()!!.toString()
+
+        print("Вы выбрали манеру вождения: ")
+        if (driving == "Северная") {
+            println(transportCar_Driving.northern_driving)
+        } else if (driving== "Нормальная") {
+            println(transportCar_Driving.normal_driving)
+        } else if (driving == "Столичная") {
+            println(transportCar_Driving.metropolitan_driving)
+        }
+        else if (driving == "Южная") {
+            println(transportCar_Driving.southern_driving)
+        } else {println("Вы выбрали непонятную манеру вождения!!!")}
+
+        break
+}
     println(transportCar_Movement.stop_of_movement)
 
 }
@@ -102,245 +185,39 @@ interface Driving {
     val southern_driving: String
 }
 
-class car: Rubber, Asphalt, Relief, Season, Movement, Driving    {
+open class road_data: Rubber, Asphalt, Relief, Season, Movement, Driving {
     override val driving_Rubber_summer = "Летние"
     override val driving_Rubber_winter = "Зимние"
     override val driving_Rubber_allSeason = "Всесезонные"
 
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
+    override val excellent_asphalt = "Отличный"
+    override val good_asphalt = "Хороший"
+    override val bad_asphalt = "Плохой"
 
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
+    override val horizontal_relief = "Горизонтальный"
+    override val inclined_relief = "Наклонный"
+    override val convex_relief = "Выпуклый"
 
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
+    override val winter_season = "Зимний"
+    override val spring_season = "Весенний"
+    override val summer_season = "Летний"
+    override val autumn_season = "Осенний"
 
     override val start_of_movement = "Начало движения"
     override val stop_of_movement = "Конец движения"
 
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
+    override val northern_driving = "Северное"
+    override val normal_driving = "Нормальное"
+    override val metropolitan_driving = "Столичное"
+    override val southern_driving = "Южное"
 }
-
-/*class bus: Rubber, Asphalt, Relief, Season, Movement, Driving    {
-    override val driving_Rubber_summer = "Летняя"
-    override val driving_Rubber_winter = "Зимняя"
-    override val driving_Rubber_allSeason = "Всесезонная"
-
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
-
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
-
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
-
-    override val start_of_movement = "Начало движения"
-    override val stop_of_movement = "Конец движения"
-
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
-}
-
-class truck: Rubber, Asphalt, Relief, Season, Movement, Driving  {
-    override val driving_Rubber_summer = "Летняя"
-    override val driving_Rubber_winter = "Зимняя"
-    override val driving_Rubber_allSeason = "Всесезонная"
-
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
-
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
-
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
-
-    override val start_of_movement = "Начало движения"
-    override val stop_of_movement = "Конец движения"
-
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
-}
-
-class tram: Rubber, Asphalt, Relief, Season, Movement, Driving  {
-    override val driving_Rubber_summer = "Летняя"
-    override val driving_Rubber_winter = "Зимняя"
-    override val driving_Rubber_allSeason = "Всесезонная"
-
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
-
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
-
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
-
-    override val start_of_movement = "Начало движения"
-    override val stop_of_movement = "Конец движения"
-
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
-}
-
-class train: Rubber, Asphalt, Relief, Season, Movement, Driving  {
-    override val driving_Rubber_summer = "Летняя"
-    override val driving_Rubber_winter = "Зимняя"
-    override val driving_Rubber_allSeason = "Всесезонная"
-
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
-
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
-
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
-
-    override val start_of_movement = "Начало движения"
-    override val stop_of_movement = "Конец движения"
-
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
-}
-
-class trolleybus: Rubber, Asphalt, Relief, Season, Movement, Driving  {
-    override val driving_Rubber_summer = "Летняя"
-    override val driving_Rubber_winter = "Зимняя"
-    override val driving_Rubber_allSeason = "Всесезонная"
-
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
-
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
-
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
-
-    override val start_of_movement = "Начало движения"
-    override val stop_of_movement = "Конец движения"
-
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
-}
-
-class bicycle: Rubber, Asphalt, Relief, Season, Movement, Driving  {
-    override val driving_Rubber_summer = "Летняя"
-    override val driving_Rubber_winter = "Зимняя"
-    override val driving_Rubber_allSeason = "Всесезонная"
-
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
-
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
-
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
-
-    override val start_of_movement = "Начало движения"
-    override val stop_of_movement = "Конец движения"
-
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
-}
-
-class moped: Rubber, Asphalt, Relief, Season, Movement, Driving  {
-    override val driving_Rubber_summer = "Летняя"
-    override val driving_Rubber_winter = "Зимняя"
-    override val driving_Rubber_allSeason = "Всесезонная"
-
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
-
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
-
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
-
-    override val start_of_movement = "Начало движения"
-    override val stop_of_movement = "Конец движения"
-
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
-}
-
-class Scooter: Rubber, Asphalt, Relief, Season, Movement, Driving  {
-    override val driving_Rubber_summer = "Летняя"
-    override val driving_Rubber_winter = "Зимняя"
-    override val driving_Rubber_allSeason = "Всесезонная"
-
-    override val excellent_asphalt = "Отличный асфальт"
-    override val good_asphalt = "Хороший асфальт"
-    override val bad_asphalt = "Плохой асфальт"
-
-    override val horizontal_relief = "Горизонтальный рельеф"
-    override val inclined_relief = "Наклонный рельеф"
-    override val convex_relief = "Выпуклый рельеф"
-
-    override val winter_season = "Зимний сезон"
-    override val spring_season = "Весенний сезон"
-    override val summer_season = "Летний сезон"
-    override val autumn_season = "Осенний сезон"
-
-    override val start_of_movement = "Начало движения"
-    override val stop_of_movement = "Конец движения"
-
-    override val northern_driving = "Северное вождение"
-    override val normal_driving = "Нормальное вождение"
-    override val metropolitan_driving = "Столичное вождение"
-    override val southern_driving = "Северное вождение"
-}*/
+class car: road_data()
+class bus: road_data()
+class truck: road_data()
+class tram: road_data()
+class train: road_data()
+class trolleybus: road_data()
+class bicycle: road_data()
+class moped: road_data()
+class Scooter: road_data()
+class all_movement: road_data()
