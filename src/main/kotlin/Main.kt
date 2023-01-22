@@ -41,111 +41,179 @@ fun main(args: Array<String>) {
 
     val transportCar_Movement:Movement = all_movement()
 
-    val transportCar_Rubber:Rubber = car()
+    /*val transportCar_Rubber:Rubber = car()
     val transportCar_Asphalt:Asphalt = car()
     val transportCar_Relief:Relief = car()
     val transportCar_Season:Season = car()
-    val transportCar_Driving:Driving = car()
+    val transportCar_Driving:Driving = car()*/
 
-    val array = arrayListOf(transportCar_Rubber, transportCar_Asphalt, transportCar_Relief, transportCar_Season, transportCar_Driving)
+    val criterionRubber:Rubber = road_data()
+    val criterionAsphalt:Asphalt = road_data()
+    val criterionRelief:Relief = road_data()
+    val criterionSeason:Season = road_data()
+    val criterionDriving:Driving = road_data()
 
-    println("1. Машина")
+    val criterionDistance:Distance = road_data()
+
+    //val array = arrayListOf(transportCar_Rubber, transportCar_Asphalt, transportCar_Relief, transportCar_Season, transportCar_Driving)
+
+    val array_1 = arrayListOf("",
+        "Первая дорожно-транспотная ситуация",
+        "Вторая дорожно-транспотная ситуация",
+        "Третья дорожно-транспотная ситуация",
+        "Четвертая дорожно-транспотная ситуация",
+        "Пятая дорожно-транспотная ситуация")
+    println("Выберете дорожно-транспотную ситуацию: \n")
+
+    println("1. Первая дорожно-транспотная ситуация")
+    println("Колеса: " + criterionRubber.driving_Rubber_summer)
+    println("Асфальт: " + criterionAsphalt.excellent_asphalt)
+    println("Рельеф: " + criterionRelief.convex_relief)
+    println("Сезон: " + criterionSeason.summer_season)
+    println("Манера вождения: " + criterionDriving.southern_driving)
+
+    println("\n2. Вторая дорожно-транспотная ситуация")
+    println("Колеса: " + criterionRubber.driving_Rubber_allSeason)
+    println("Асфальт: " + criterionAsphalt.bad_asphalt)
+    println("Рельеф: " + criterionRelief.inclined_relief)
+    println("Сезон: " + criterionSeason.winter_season)
+    println("Манера вождения: " + criterionDriving.normal_driving)
+
+    println("\n3. Третья дорожно-транспотная ситуация")
+    println("Колеса: " + criterionRubber.driving_Rubber_winter)
+    println("Асфальт: " + criterionAsphalt.good_asphalt)
+    println("Рельеф: " + criterionRelief.horizontal_relief)
+    println("Сезон: " + criterionSeason.spring_season)
+    println("Манера вождения: " + criterionDriving.metropolitan_driving)
+
+    println("\n4. Четвертая дорожно-транспотная ситуация")
+    println("Колеса: " + criterionRubber.driving_Rubber_summer)
+    println("Асфальт: " + criterionAsphalt.excellent_asphalt)
+    println("Рельеф: " + criterionRelief.inclined_relief)
+    println("Сезон: " + criterionSeason.autumn_season)
+    println("Манера вождения: " + criterionDriving.northern_driving)
+
+    println("\n5. Пятая дорожно-транспотная ситуация")
+    println("Колеса: " + criterionRubber.driving_Rubber_allSeason)
+    println("Асфальт: " + criterionAsphalt.bad_asphalt)
+    println("Рельеф: " + criterionRelief.inclined_relief)
+    println("Сезон: " + criterionSeason.summer_season)
+    println("Манера вождения: " + criterionDriving.southern_driving)
+
+    print("\nВаш выбор: ")
+    var choice = readLine()!!.toInt()
+
+    if (choice == 1 ) {
+        println("Вы выбрали первую дорожно-транспотную ситуацию")
+    } else if (choice == 2){
+        println("Вы выбрали вторую дорожно-транспотную ситуацию")
+    } else if (choice == 3) {
+        println("Вы выбрали вторую дорожно-транспотную ситуацию")
+    } else if (choice == 4) {
+        println("Вы выбрали вторую дорожно-транспотную ситуацию")
+    } else if (choice == 5) {
+        println("Вы выбрали вторую дорожно-транспотную ситуацию")
+    }
+
+    println("Выберете статистику: \n")
+
+
+    /*println("1. Машина")
 
     println(transportCar_Movement.start_of_movement)
 
     for (i in array) {
-        println("Выберете колёса: ")
-        println("1. Летние")
-        println("2. Зимние")
-        println("3. Всесезонные")
-        print("Ваш выбор: ")
-        val wheels = readln()!!.toString()
+       println("Выберете колёса: ")
+       println("1. Летние")
+       println("2. Зимние")
+       println("3. Всесезонные")
+       print("Ваш выбор: ")
+       val wheels = readln()!!.toString()
 
-        print("Вы выбрали колёса: ")
-        if (wheels == "Летние") {
-            println(transportCar_Rubber.driving_Rubber_summer)
-        } else if (wheels == "Зимние") {
-            println(transportCar_Rubber.driving_Rubber_winter)
-        } else if (wheels == "Всесезонные") {
-            println(transportCar_Rubber.driving_Rubber_allSeason)
-        } else {println("Вы выбрали непонятные колёса!!!")}
+       print("Вы выбрали колёса: ")
+       if (wheels == "Летние") {
+           println(transportCar_Rubber.driving_Rubber_summer)
+       } else if (wheels == "Зимние") {
+           println(transportCar_Rubber.driving_Rubber_winter)
+       } else if (wheels == "Всесезонные") {
+           println(transportCar_Rubber.driving_Rubber_allSeason)
+       } else {println("Вы выбрали непонятные колёса!!!")}
 
-        println("Выберете асфальт: ")
-        println("1. Отличный")
-        println("2. Хороший")
-        println("3. Плохой")
-        print("Ваш выбор: ")
-        val road = readln()!!.toString()
+       println("Выберете асфальт: ")
+       println("1. Отличный")
+       println("2. Хороший")
+       println("3. Плохой")
+       print("Ваш выбор: ")
+       val road = readln()!!.toString()
 
-        print("Вы выбрали асфальт: ")
-        if (road == "Отличный") {
-            println(transportCar_Asphalt.excellent_asphalt)
-        } else if (wheels == "Хороший") {
-            println(transportCar_Asphalt.good_asphalt)
-        } else if (wheels == "Плохой") {
-            println(transportCar_Asphalt.bad_asphalt)
-        } else {println("Вы выбрали непонятный асфальт!!!")}
+       print("Вы выбрали асфальт: ")
+       if (road == "Отличный") {
+           println(transportCar_Asphalt.excellent_asphalt)
+       } else if (wheels == "Хороший") {
+           println(transportCar_Asphalt.good_asphalt)
+       } else if (wheels == "Плохой") {
+           println(transportCar_Asphalt.bad_asphalt)
+       } else {println("Вы выбрали непонятный асфальт!!!")}
 
-        println("Выберете рельеф: ")
-        println("1. Горизонтальный")
-        println("2. Наклонный")
-        println("3. Выпклый")
-        print("Ваш выбор: ")
-        val relief = readln()!!.toString()
+       println("Выберете рельеф: ")
+       println("1. Горизонтальный")
+       println("2. Наклонный")
+       println("3. Выпклый")
+       print("Ваш выбор: ")
+       val relief = readln()!!.toString()
 
-        print("Вы выбрали рельеф: ")
-        if (relief == "Горизонтальный") {
-            println(transportCar_Relief.horizontal_relief)
-        } else if (relief == "Наклонный") {
-            println(transportCar_Relief.inclined_relief)
-        } else if (relief == "Выпклый") {
-            println(transportCar_Relief.convex_relief)
-        } else {println("Вы выбрали непонятный рельеф!!!")}
+       print("Вы выбрали рельеф: ")
+       if (relief == "Горизонтальный") {
+           println(transportCar_Relief.horizontal_relief)
+       } else if (relief == "Наклонный") {
+           println(transportCar_Relief.inclined_relief)
+       } else if (relief == "Выпклый") {
+           println(transportCar_Relief.convex_relief)
+       } else {println("Вы выбрали непонятный рельеф!!!")}
 
-        println("Выберете сезон: ")
-        println("1. Зимний")
-        println("2. Весенний")
-        println("3. Летний")
-        println("4. Осенний")
-        print("Ваш выбор: ")
-        val season = readln()!!.toString()
+       println("Выберете сезон: ")
+       println("1. Зимний")
+       println("2. Весенний")
+       println("3. Летний")
+       println("4. Осенний")
+       print("Ваш выбор: ")
+       val season = readln()!!.toString()
 
-        print("Вы выбрали сезон: ")
-        if (season == "Зимний") {
-            println(transportCar_Season.winter_season)
-        } else if (season== "Весенний") {
-            println(transportCar_Season.spring_season)
-        } else if (season == "Летний") {
-            println(transportCar_Season.summer_season)
-        }
-        else if (season == "Осенний") {
-            println(transportCar_Season.autumn_season)
-        } else {println("Вы выбрали не верный сезон года!!!")}
+       print("Вы выбрали сезон: ")
+       if (season == "Зимний") {
+           println(transportCar_Season.winter_season)
+       } else if (season== "Весенний") {
+           println(transportCar_Season.spring_season)
+       } else if (season == "Летний") {
+           println(transportCar_Season.summer_season)
+       }
+       else if (season == "Осенний") {
+           println(transportCar_Season.autumn_season)
+       } else {println("Вы выбрали не верный сезон года!!!")}
 
-        println("Выберете манеру вождения: ")
-        println("1. Северная")
-        println("2. Нормальная")
-        println("3. Столичная")
-        println("4. Южная")
-        print("Ваш выбор: ")
-        val driving = readln()!!.toString()
+       println("Выберете манеру вождения: ")
+       println("1. Северная")
+       println("2. Нормальная")
+       println("3. Столичная")
+       println("4. Южная")
+       print("Ваш выбор: ")
+       val driving = readln()!!.toString()
 
-        print("Вы выбрали манеру вождения: ")
-        if (driving == "Северная") {
-            println(transportCar_Driving.northern_driving)
-        } else if (driving== "Нормальная") {
-            println(transportCar_Driving.normal_driving)
-        } else if (driving == "Столичная") {
-            println(transportCar_Driving.metropolitan_driving)
-        }
-        else if (driving == "Южная") {
-            println(transportCar_Driving.southern_driving)
-        } else {println("Вы выбрали непонятную манеру вождения!!!")}
+       print("Вы выбрали манеру вождения: ")
+       if (driving == "Северная") {
+           println(transportCar_Driving.northern_driving)
+       } else if (driving== "Нормальная") {
+           println(transportCar_Driving.normal_driving)
+       } else if (driving == "Столичная") {
+           println(transportCar_Driving.metropolitan_driving)
+       }
+       else if (driving == "Южная") {
+           println(transportCar_Driving.southern_driving)
+       } else {println("Вы выбрали непонятную манеру вождения!!!")}
 
-        break
+       break
 }
-    println(transportCar_Movement.stop_of_movement)
-
+   println(transportCar_Movement.stop_of_movement)*/
 }
 
 interface Movement {
@@ -184,8 +252,15 @@ interface Driving {
     val metropolitan_driving: String
     val southern_driving: String
 }
+interface Distance {
+    val distance_1: Int
+    val distance_2: Int
+    val distance_3: Int
+    val distance_4: Int
+    val distance_5: Int
+}
 
-open class road_data: Rubber, Asphalt, Relief, Season, Movement, Driving {
+open class road_data: Rubber, Asphalt, Relief, Season, Movement, Driving, Distance{
     override val driving_Rubber_summer = "Летние"
     override val driving_Rubber_winter = "Зимние"
     override val driving_Rubber_allSeason = "Всесезонные"
@@ -206,10 +281,17 @@ open class road_data: Rubber, Asphalt, Relief, Season, Movement, Driving {
     override val start_of_movement = "Начало движения"
     override val stop_of_movement = "Конец движения"
 
-    override val northern_driving = "Северное"
-    override val normal_driving = "Нормальное"
-    override val metropolitan_driving = "Столичное"
-    override val southern_driving = "Южное"
+    override val northern_driving = "Северная"
+    override val normal_driving = "Нормальная"
+    override val metropolitan_driving = "Столичная"
+    override val southern_driving = "Южная"
+
+    override val distance_1 = 100
+    override val distance_2 = 80
+    override val distance_3 = 50
+    override val distance_4 = 10
+    override val distance_5 = 5
+
 }
 class car: road_data()
 class bus: road_data()
@@ -219,5 +301,5 @@ class train: road_data()
 class trolleybus: road_data()
 class bicycle: road_data()
 class moped: road_data()
-class Scooter: road_data()
+class scooter: road_data()
 class all_movement: road_data()
