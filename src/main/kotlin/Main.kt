@@ -53,16 +53,19 @@ fun main(args: Array<String>) {
     val criterionSeason:Season = road_data()
     val criterionDriving:Driving = road_data()
 
+    val criterionNumberofCars:numberofCars = road_data()
     val criterionDistance:Distance = road_data()
+    val criterionAverageDistance:averageDistance = road_data()
+    val criterionGasStations:gasStations = road_data()
 
     //val array = arrayListOf(transportCar_Rubber, transportCar_Asphalt, transportCar_Relief, transportCar_Season, transportCar_Driving)
 
-    val array_1 = arrayListOf("",
+    /*val array_1 = arrayListOf("",
         "Первая дорожно-транспотная ситуация",
         "Вторая дорожно-транспотная ситуация",
         "Третья дорожно-транспотная ситуация",
         "Четвертая дорожно-транспотная ситуация",
-        "Пятая дорожно-транспотная ситуация")
+        "Пятая дорожно-транспотная ситуация")*/
     println("Выберете дорожно-транспотную ситуацию: \n")
 
     println("1. Первая дорожно-транспотная ситуация")
@@ -101,22 +104,78 @@ fun main(args: Array<String>) {
     println("Манера вождения: " + criterionDriving.southern_driving)
 
     print("\nВаш выбор: ")
-    var choice = readLine()!!.toInt()
+    var choice_1 = readLine()!!.toInt()
 
-    if (choice == 1 ) {
+    if (choice_1 == 1) {
         println("Вы выбрали первую дорожно-транспотную ситуацию")
-    } else if (choice == 2){
+    } else if (choice_1 == 2){
         println("Вы выбрали вторую дорожно-транспотную ситуацию")
-    } else if (choice == 3) {
+    } else if (choice_1 == 3) {
         println("Вы выбрали вторую дорожно-транспотную ситуацию")
-    } else if (choice == 4) {
+    } else if (choice_1 == 4) {
         println("Вы выбрали вторую дорожно-транспотную ситуацию")
-    } else if (choice == 5) {
+    } else if (choice_1 == 5) {
         println("Вы выбрали вторую дорожно-транспотную ситуацию")
     }
 
     println("Выберете статистику: \n")
 
+    /*val array_2 = arrayListOf("",
+        "Первая дорожно-транспотная статистика",
+        "Вторая дорожно-транспотная статистика",
+        "Третья дорожно-транспотная статистика",
+        "Четвертая дорожно-транспотная статистика",
+        "Пятая дорожно-транспотная статистика")*/
+    println("Выберете дорожно-транспотную статистику: \n")
+
+    println("1. Первая дорожно-транспотная статистика")
+    println("Количество проехавшего транспорта: " + criterionNumberofCars.number_2)
+    println("Количество км в сумме проехавших транспортом: " + criterionDistance.distance_3)
+    println("Количество км в среднем транспорт проводит в пути: " + criterionAverageDistance.average_4)
+    println("Количество транспорта останавливающегося у автозаправки: " + criterionGasStations.stations_3)
+
+    println("\n2. Вторая дорожно-транспотная статистика")
+    println("Количество проехавшего транспорта: " + criterionNumberofCars.number_1)
+    println("Количество км в сумме проехавших транспортом: " + criterionDistance.distance_5)
+    println("Количество км в среднем транспорт проводит в пути: " + criterionAverageDistance.average_1)
+    println("Количество транспорта останавливающегося у автозаправки: " + criterionGasStations.stations_4)
+
+    println("\n3. Третья дорожно-транспотная статистика")
+    println("Количество проехавшего транспорта: " + criterionNumberofCars.number_5)
+    println("Количество км в сумме проехавших транспортом: " + criterionDistance.distance_1)
+    println("Количество км в среднем транспорт проводит в пути: " + criterionAverageDistance.average_2)
+    println("Количество транспорта останавливающегося у автозаправки: " + criterionGasStations.stations_2)
+
+    println("\n4. Четвертая дорожно-транспотная статистика")
+    println("Количество проехавшего транспорта: " + criterionNumberofCars.number_4)
+    println("Количество км в сумме проехавших транспортом: " + criterionDistance.distance_2)
+    println("Количество км в среднем транспорт проводит в пути: " + criterionAverageDistance.average_1)
+    println("Количество транспорта останавливающегося у автозаправки: " + criterionGasStations.stations_1)
+
+    println("\n5. Пятая дорожно-транспотная статистика")
+    println("Количество проехавшего транспорта: " + criterionNumberofCars.number_3)
+    println("Количество км в сумме проехавших транспортом: " + criterionDistance.distance_4)
+    println("Количество км в среднем транспорт проводит в пути: " + criterionAverageDistance.average_5)
+    println("Количество транспорта останавливающегося у автозаправки: " + criterionGasStations.stations_5)
+
+    print("\nВаш выбор: ")
+    var choice_2 = readLine()!!.toInt()
+
+    if (choice_2 == 1) {
+        println("Вы выбрали первую дорожно-транспотную статистику")
+    } else if (choice_2 == 2){
+        println("Вы выбрали вторую дорожно-транспотную статистику")
+    } else if (choice_2 == 3) {
+        println("Вы выбрали вторую дорожно-транспотную статистику")
+    } else if (choice_2 == 4) {
+        println("Вы выбрали вторую дорожно-транспотную статистику")
+    } else if (choice_2 == 5) {
+        println("Вы выбрали вторую дорожно-транспотную статистику")
+    }
+
+    println(transportCar_Movement.start_of_movement)
+    println(transportCar_Movement.stop_of_movement)
+    println("\nДорожно-Транспортные результаты:")
 
     /*println("1. Машина")
 
@@ -252,6 +311,13 @@ interface Driving {
     val metropolitan_driving: String
     val southern_driving: String
 }
+interface numberofCars {
+    val number_1: Int
+    val number_2: Int
+    val number_3: Int
+    val number_4: Int
+    val number_5: Int
+}
 interface Distance {
     val distance_1: Int
     val distance_2: Int
@@ -260,7 +326,22 @@ interface Distance {
     val distance_5: Int
 }
 
-open class road_data: Rubber, Asphalt, Relief, Season, Movement, Driving, Distance{
+interface averageDistance {
+    val average_1: Int
+    val average_2: Int
+    val average_3: Int
+    val average_4: Int
+    val average_5: Int
+}
+
+interface gasStations {
+    val stations_1: Int
+    val stations_2: Int
+    val stations_3: Int
+    val stations_4: Int
+    val stations_5: Int
+}
+open class road_data: Rubber, Asphalt, Relief, Season, Movement, Driving, Distance, numberofCars, averageDistance, gasStations{
     override val driving_Rubber_summer = "Летние"
     override val driving_Rubber_winter = "Зимние"
     override val driving_Rubber_allSeason = "Всесезонные"
@@ -286,11 +367,29 @@ open class road_data: Rubber, Asphalt, Relief, Season, Movement, Driving, Distan
     override val metropolitan_driving = "Столичная"
     override val southern_driving = "Южная"
 
+    override val number_1 = 10
+    override val number_2 = 9
+    override val number_3 = 5
+    override val number_4 = 2
+    override val number_5 = 1
+
     override val distance_1 = 100
     override val distance_2 = 80
     override val distance_3 = 50
     override val distance_4 = 10
     override val distance_5 = 5
+
+    override val average_1 = 14
+    override val average_2 = 12
+    override val average_3 = 8
+    override val average_4 = 4
+    override val average_5 = 2
+
+    override val stations_1 = 6
+    override val stations_2 = 5
+    override val stations_3 = 3
+    override val stations_4 = 1
+    override val stations_5 = 0
 
 }
 class car: road_data()
